@@ -1,0 +1,166 @@
+.header {
+  background-color: #BAF3FE;
+
+  .container {
+    padding: 41px 119px;
+  }
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  margin-right: 42px;
+}
+
+.header__title {
+  margin-bottom: 66px;
+}
+
+.header__nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.header__nav-list {
+  display: flex;
+  margin-left: -30px;
+}
+
+.header__nav-item {
+  margin-left: 30px;
+}
+
+.header__btns-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__btns-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 40px;
+}
+
+.header__theme-switcher {
+  display: flex;
+  align-items: center;
+  width: 115px;
+  height: 43px;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  padding: 3px 1px;
+  background-color: transparent;
+  background: url("../img/svg/light-theme.svg") 10% center no-repeat, url("../img/svg/dark-theme.svg") 90% center no-repeat;
+  border: 2px solid #56B3C6;
+  cursor: pointer;
+
+  .theme-switcher__toggle {
+    display: block;
+    width: 38px;
+    height: 37px;
+    background: #56b3c6;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-image: url("../img/svg/light-theme.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 29px 29px;
+  }
+}
+
+.header__order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 199px;
+  height: 60px;
+  background: url("../img/order.png") center no-repeat;
+
+  span {
+    font-size: 32;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+
+.header__intro {
+  display: flex;
+  padding: 60px 0;
+}
+
+.header__intro-title {
+  max-width: 637px;
+
+  h1 {
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: #ed2e38;
+    text-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.header__intro-clouds {
+  position: absolute;
+  width: 100%;
+  max-width: 1220px;
+  height: 489px;
+}
+
+.header__intro-cloud {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: #56B3C6;
+    line-height: 1.1;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &--service {
+    width: 399px;
+    height: 167px;
+    top: 0;
+    right: 310px;
+    background: url("../img/cloud-1.png") center no-repeat;
+
+    span {
+      font-size: 48px;
+    }
+  }
+
+  &--shop {
+    width: 564px;
+    height: 251px;
+    top: 50%;
+    transform: translateY(-68%);
+    right: -20px;
+    background: url("../img/cloud-2.png") center no-repeat;
+
+    span {
+      font-size: 54px;
+    }
+  }
+
+  &--landing {
+    width: 491px;
+    height: 197px;
+    bottom: 0;
+    right: 300px;
+    background: url("../img/cloud-3.png") center no-repeat;
+
+    span {
+      font-size: 64px;
+    }
+  }
+}
