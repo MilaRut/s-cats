@@ -2,7 +2,7 @@
   background-color: #BAF3FE;
 
   .container {
-    padding: 41px 119px;
+    padding: 41px 119px 123px;
   }
 }
 
@@ -28,13 +28,42 @@
 .header__nav-list {
   display: flex;
   margin-left: -30px;
+  margin-bottom: 20px;
 }
 
 .header__nav-item {
   margin-left: 30px;
 }
 
+.header__nav-link {
+  @include font-settings($ff-pixy, 400, 20px, 1);
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-default-black;
+    transform: scale(0);
+    transition: transform $trans-default;
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  @include hover {
+    &::after {
+      transform: scale(1);
+    }
+  }
+}
+
 .header__btns-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -47,33 +76,6 @@
   padding-top: 40px;
 }
 
-.header__theme-switcher {
-  display: flex;
-  align-items: center;
-  width: 115px;
-  height: 43px;
-  border-radius: 5px;
-  margin-bottom: 40px;
-  padding: 3px 1px;
-  background-color: transparent;
-  background: url("../img/svg/light-theme.svg") 10% center no-repeat, url("../img/svg/dark-theme.svg") 90% center no-repeat;
-  border: 2px solid #56B3C6;
-  cursor: pointer;
-
-  .theme-switcher__toggle {
-    display: block;
-    width: 38px;
-    height: 37px;
-    background: #56b3c6;
-    border-radius: 3px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    background-image: url("../img/svg/light-theme.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 29px 29px;
-  }
-}
-
 .header__order-btn {
   display: flex;
   align-items: center;
@@ -83,9 +85,93 @@
   background: url("../img/order.png") center no-repeat;
 
   span {
-    font-size: 32;
+    @include font-settings($ff-pixy, 400, 32px, 1);
     text-transform: uppercase;
     margin-bottom: 10px;
+  }
+
+  &:active {
+    background: url("../img/order-active.png") center no-repeat;
+
+    span {
+      padding-top: 5px;
+    }
+  }
+}
+
+.header__bubbles-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  animation: bubble 1s infinite;
+  animation-timing-function: steps(7, end);
+  animation-play-state: paused;
+
+  &--1,
+  &--6 {
+    background: url("../img/animations/bubble.png");
+  }
+
+  &--2,
+  &--4 {
+    background: url("../img/animations/bubble-2.png");
+  }
+
+  &--3,
+  &--5 {
+    background: url("../img/animations/bubble-3.png");
+  }
+
+  &--1 {
+    top: 70px;
+    left: 10px;
+  }
+
+  &--2 {
+    top: 75px;
+    left: 70px;
+  }
+
+  &--3 {
+    top: 55px;
+    left: 150px;
+  }
+
+  &--4 {
+    top: 200px;
+    left: -40px;
+  }
+
+  &--5 {
+    top: 183px;
+    left: 74px;
+  }
+
+  &--6 {
+    top: 230px;
+    left: 180px;
+  }
+}
+
+.header__order-btn {
+  @include hover {
+    & + .header__bubbles-wrapper .bubble {
+      animation-play-state: running;
+    }
+  }
+}
+
+@keyframes bubble {
+  100% {
+    background-position-x: -253px;
   }
 }
 
@@ -98,12 +184,10 @@
   max-width: 637px;
 
   h1 {
-    font-weight: 800;
-    font-size: 80px;
-    line-height: 1.5;
+    @include font-settings ($ff-gilr, 800, 80px, 1.5);
     text-transform: uppercase;
     color: #ed2e38;
-    text-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -121,46 +205,53 @@
   justify-content: center;
 
   span {
+    @include font-settings ($ff-pixy, 400, 48px, 1.1);
     color: #56B3C6;
     line-height: 1.1;
     text-align: center;
-    cursor: pointer;
+    cursor: default;
   }
 
-  &--service {
+  &--top {
     width: 399px;
     height: 167px;
     top: 0;
     right: 310px;
     background: url("../img/cloud-1.png") center no-repeat;
-
-    span {
-      font-size: 48px;
-    }
+    padding: 40px 30px 0 0;
   }
 
-  &--shop {
+  &--middle {
     width: 564px;
     height: 251px;
     top: 50%;
     transform: translateY(-68%);
     right: -20px;
     background: url("../img/cloud-2.png") center no-repeat;
+    padding: 60px 0 0 40px;
 
     span {
       font-size: 54px;
     }
   }
 
-  &--landing {
+  &--bottom {
     width: 491px;
     height: 197px;
     bottom: 0;
     right: 300px;
     background: url("../img/cloud-3.png") center no-repeat;
+    padding: 60px 40px 0 0;
 
     span {
       font-size: 64px;
+    }
+  }
+
+  @include hover {
+    span {
+      transform: translateY(-40px) scale(1.1);
+      transition: transform 0.5s ease-in-out;
     }
   }
 }

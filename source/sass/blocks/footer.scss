@@ -1,0 +1,219 @@
+.footer {
+  min-height: 740px;
+  background-color: #baf3fe;
+  padding-top: 50px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.footer__title {
+  margin-bottom: 65px;
+
+  h2 {
+    @include font-settings ($ff-gilr, 800, 64px, 1);
+    letter-spacing: 0.05em;
+    color: #fefefe;
+    text-transform: uppercase;
+    text-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 103px;
+}
+
+.footer__contacts {
+
+  h3,
+  p {
+    @include font-settings ($ff-cent, 700, 24px, 1);
+    display: flex;
+    letter-spacing: 0.05em;
+    color: #56b3c6;
+    margin-bottom: 26px;
+  }
+
+  a {
+    color: #56b3c6;
+    transition: opacity $trans-default;
+
+    @include hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.footer__form {
+  form {
+    min-width: 522px;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+  }
+
+  p,
+  label {
+    @include font-settings ($ff-cent, 700, 24px, 1);
+    color: #56b3c6;
+    position: relative;
+
+    &:has(input[type="radio"]) {
+      @include font-settings ($ff-cent, 700, 16px, 1);
+      color: $color-default-black;
+      text-transform: uppercase;
+    }
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.18);
+    background: #fefefe;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 335px;
+    padding: 5px;
+    border: none;
+  }
+
+  textarea {
+    min-height: 82px;
+    margin-bottom: 40px;
+  }
+
+  .footer__radio,
+  .footer__checkbox {
+    label {
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: opacity $trans-default;
+
+      @include hover {
+        opacity: 0.7;
+      }
+    }
+
+    label::before,
+    label::after {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid #56b3c6;
+      background-color: #fefefe;
+    }
+
+    label::before {
+      left: 0;
+    }
+
+    label::after {
+      left: 26px;
+      border: none;
+      background: transparent;
+    }
+  }
+
+  label[for="email"]::after {
+    background-image: url("../img/svg/icon-email.svg");
+  }
+
+  label[for="whatsapp"]::after {
+    background: url("../img/svg/icon-whatsapp.svg") center no-repeat;
+  }
+
+  label[for="telegram"]::after {
+    background: url("../img/svg/icon-tg.svg") center no-repeat;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  label:has(input[type="radio"]) {
+    padding-left: 52px;
+
+    &::before {
+      border-radius: 50%;
+    }
+  }
+
+  label:has(input[type="radio"]:checked)::before {
+    background-color: #56b3c6;
+    box-shadow: inset 0 0 0 3px $color-default-white;
+  }
+
+  label:has(input[type="checkbox"]:checked)::before {
+    background: #fefefe url("../img/svg/check-mark.svg") center no-repeat;
+  }
+
+  label:has(input[type="checkbox"]) {
+    padding-left: 46px;
+
+    &::after {
+      display: none
+    }
+
+    span {
+      @include font-settings($ff-cent, 700, 16px, 1);
+      text-transform: none;
+      color: #56b3c6;
+    }
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      color: #e41d23;
+    }
+  }
+}
+
+.footer__submit-btn {
+  width: 283px;
+  height: 71px;
+  margin: 40px 0;
+  background: url("../img/submit.png") center no-repeat;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  span {
+    @include font-settings($ff-pixy, 400, 40px, 1);
+    margin-bottom: 10px;
+  }
+
+  &:active {
+    background: url("../img/submit-active.png") center no-repeat;
+
+    span {
+      padding-top: 5px;
+    }
+  }
+
+}

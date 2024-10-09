@@ -67,3 +67,33 @@
   padding: 0;
   list-style: none;
 }
+
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+  content: '';
+}
+
+.to-top-wrapper {
+  position: fixed;
+  right: 80px;
+  bottom: 80px;
+}
+
+.to-top-btn {
+  width: 44px;
+  height: 55px;
+  background: transparent url("../img/svg/top-btn.svg") center no-repeat;
+  opacity: 0;
+
+  border: none;
+  cursor: pointer;
+
+  &:active {
+    background: transparent url("../img/svg/top-btn-active.svg") center no-repeat;
+  }
+}

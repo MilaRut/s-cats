@@ -1,0 +1,17 @@
+.stages {
+  background-color: #56B3C6;
+  padding: 80px 0 0;
+
+  .container {
+    padding: 0;
+  }
+}
+
+.stages__title {
+  @include font-settings ($ff-gilr, 800, 64px, 1.5);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-default-white;
+  margin-bottom: 80px;
+}

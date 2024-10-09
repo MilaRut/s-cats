@@ -1,0 +1,71 @@
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  width: 115px;
+  height: 43px;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  padding: 3px 1px;
+  background-color: transparent;
+  background: url("../img/svg/bracket.svg") 10% center no-repeat, url("../img/svg/bracket-smile.svg") 90% center no-repeat;
+  border: 2px solid #56B3C6;
+  cursor: pointer;
+}
+
+.theme-switcher__toggle {
+  position: relative;
+  display: block;
+  width: 38px;
+  height: 37px;
+  background: #56b3c6;
+  border-radius: 3px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-image: url("../img/svg/bracket.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 29px 29px;
+  transition: transform $trans-default;
+
+  @include hover {
+    .theme-switcher__tooltip--normal {
+      display: block;
+    }
+  }
+}
+
+.theme-switcher__tooltip {
+  @include font-settings($ff-cent, 400, 10px, 1);
+  color: #fefefe;
+  display: none;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #56b3c6;
+  text-wrap: nowrap;
+  padding: 3px 12px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 23px;
+    height: 9px;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    background: url("../img/svg/triangle.svg") center no-repeat;
+  }
+}
+
+.theme-switcher.is-active {
+  .theme-switcher__toggle {
+    background-image: url("../img/svg/bracket-smile.svg");
+    transform: translateX(71px);
+
+    @include hover {
+      .theme-switcher__tooltip--fun {
+        display: block;
+      }
+    }
+  }
+}
